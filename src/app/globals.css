@@ -2,32 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@import url(../shared/font/stylesheet.css);
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	font-family: 'Overpass';
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.grid-task-item {
+	display: grid;
+	grid-template-columns: 50% 20% 15% 15%;
+	justify-content: center;
+	align-items: center;
+}
+
+.alert-message {
+	position: absolute;
+}
+.alert-message.close {
+	top: -100%;
+}
+.alert-message.open {
+	top: 0%;
+}
+.deleted-item {
+	animation: 0.5s delAnim forwards;
+	transition: all;
+}
+
+@keyframes delAnim {
+	from {
+		position: relative;
+		left: 0;
+	}
+	to {
+		height: 0;
+		position: absolute;
+		left: -120%;
+	}
 }
