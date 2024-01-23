@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@localhost:9432/your_database_name
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+      
+  database:
+    
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "6432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

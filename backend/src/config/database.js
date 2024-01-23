@@ -1,10 +1,6 @@
 // config/database.js
 const { Sequelize } = require('sequelize')
+const config = require('./sequelize.config')
 
-const sequelize = new Sequelize('todo_app', 'postgres', 'postgres', {
-	host: 'localhost', // Используйте 'localhost', поскольку контейнер запущен локально
-	dialect: 'postgres',
-	port: 7432,
-})
-
+const sequelize = new Sequelize(config.development)
 module.exports = sequelize

@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+
+# Dependency directories
+npm-debug.log
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn
+yarn-error.log
+.pnp.*
+
+# dotenv environment variables file
+.env
+.env.test
+.env*.local
+
+# production build
+build/
+dist/
+
+# Misc
+.DS_Store
+Thumbs.db
