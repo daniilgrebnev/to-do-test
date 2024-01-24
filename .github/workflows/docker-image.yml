@@ -15,8 +15,8 @@ jobs:
         ports:
           - 8080:8080
           - 3000:3000
-          - 7432:5432 # Укажите порты, которые нужны для службы
-        options: --entrypoint ""
+          - 7432:5432 # Порт 7432 для PostgreSQL
+        options: --network github_network # Убедитесь, что имя сети соответствует вашему проекту
 
     steps:
       - name: Checkout code
@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests or other actions
         run: |
-          # Здесь вы можете выполнить свои тесты или другие действия
+          # Ваш код тестов или другие действия
 
       - name: Tear down services
         run: sudo docker-compose -f docker-compose.yml down
