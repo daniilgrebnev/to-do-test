@@ -5,13 +5,13 @@ import CreateTaskModal from './CreateTaskModal'
 const CreateTodo = () => {
 	const { isOpen, openModal } = useModalStore()
 	return (
-		<div className='my-10'>
+		<div className='w-full h-full flex items-center mx-auto justify-center transition-all duration-500'>
 			{isOpen && <CreateTaskModal />}
 			<div
 				onClick={openModal}
-				className=' text-4xl py-3 cursor-pointer hover:w-1/2 hover:shadow-lg w-[45%] transition-all mx-auto  text-center  text-white rounded-full  bg-emerald-600'
+				className='w-10/12 h-10/12 mx-auto py-10 my-6 rounded-lg text-6xl border-4 text-gray-600 hover:bg-slate-200 hover:shadow-lg transition-all cursor-pointer  border-gray-600 font-bold flex flex-col items-center justify-center text-center'
 			>
-				+ Добавить задачу
+				+ <span className='text-lg font-light'> Новая задача</span>
 			</div>
 		</div>
 	)

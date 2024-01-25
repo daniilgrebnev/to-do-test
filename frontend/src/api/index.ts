@@ -68,12 +68,12 @@ const putTodo = async (
 }
 
 // Удаление задачи по идентификатору
-const deleteTodo = async (id: number): Promise<void> => {
+const deleteTodo = async (id: number): Promise<string> => {
 	try {
 		await axios.delete(`${baseUrl}/todos/${id}`)
+		return `deleted + ${id}`
 	} catch (error) {
 		console.error('Error deleting todo', error)
-		throw error
 	}
 }
 

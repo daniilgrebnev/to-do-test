@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 			<Provider store={store}>
 				<Header />
 
-				<main className='pt-24'>{children}</main>
+				<main className='pt-36'>{children}</main>
 			</Provider>
 		</div>
 	)

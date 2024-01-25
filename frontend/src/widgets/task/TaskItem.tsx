@@ -61,62 +61,68 @@ const TaskItem = ({ title, text, status, id, createdAt }: ITask) => {
 
 	return (
 		<div
-			className={`${isDeleted && 'deleted-item'} transition-all duration-500`}
+			className={`${
+				isDeleted && 'deleted-item'
+			} transition-all duration-500  h-48`}
 		>
 			<div
 				style={{
 					borderColor: color,
 				}}
-				className='  text-black overflow-hidden w-8/12 mx-auto my-6  border-2 grid-task-item rounded-lg cursor-pointer transition-all hover:shadow-lg border-teal-700 '
+				className=' relative text-black h-48 overflow-hidden w-full mx-auto my-6  border-4   rounded-lg cursor-pointer transition-all hover:shadow-lg border-teal-700 '
 			>
-				<div
-					onClick={() => openDemoView(itemData)}
-					className='text-2xl  hover:bg-gray-50 font-semibold pl-8 py-3'
-				>
-					{title}
-				</div>
-				<div className='relative h-full w-full flex items-center justify-center p-3'>
+				<div className='flex flex-col items-start justify-between'>
 					<div
+						onClick={() => openDemoView(itemData)}
+						className='text-2xl  hover:bg-gray-50 font-semibold pl-8 py-3'
+					>
+						{title}
+					</div>
+					<div className='relative h-full w-full flex items-center justify-start py-5 px-7'>
+						{/* <div
 						style={{ background: color }}
 						className=' flex items-center justify-center w-0.5 text-center   absolute b h-full top-0 left-0 '
-					></div>
-					<div
-						style={{ background: color }}
-						className=' text-white py-1 px-4 rounded-lg'
-					>
-						<select
-							className='bg-inherit focus-within:outline-0'
-							value={statusHook}
-							onChange={e => updateStatusHandler(id, e.target.value)}
+					></div> */}
+						<div
+							style={{ background: color }}
+							className=' text-white text-left py-1 px-4 rounded-lg'
 						>
-							<option className='bg-[#374151]' value={0}>
-								Ожидает
-							</option>
-							<option className='bg-[#ca8a04]' value={1}>
-								В работе
-							</option>
-							<option className='bg-[#059669]' value={2}>
-								Завершен
-							</option>
-						</select>
+							<select
+								className='bg-inherit focus-within:outline-0'
+								value={statusHook}
+								onChange={e => updateStatusHandler(id, e.target.value)}
+							>
+								<option className='bg-[#374151]' value={0}>
+									Ожидает
+								</option>
+								<option className='bg-[#ca8a04]' value={1}>
+									В работе
+								</option>
+								<option className='bg-[#059669]' value={2}>
+									Завершен
+								</option>
+							</select>
+						</div>
 					</div>
 				</div>
-				<div className='relative h-full w-full flex items-center justify-center p-3'>
+				<div className='flex items-center justify-between absolute bottom-0 w-full'>
+					<div className='relative h-full w-full flex items-center justify-center p-3'>
+						{/* <div
+							style={{ background: color }}
+							className=' flex  items-center justify-center w-0.5 text-center   absolute b h-full top-0 left-0 '
+						></div> */}
+						Изменить
+					</div>
 					<div
-						style={{ background: color }}
-						className=' flex  items-center justify-center w-0.5 text-center   absolute b h-full top-0 left-0 '
-					></div>
-					Изменить
-				</div>
-				<div
-					onClick={() => removeItem(id)}
-					className='relative h-full text-red-400 w-full flex items-center justify-center p-3'
-				>
-					<div
-						style={{ background: color }}
-						className=' flex  items-center justify-center w-0.5 text-center absolute b h-full top-0 left-0'
-					></div>
-					Удалить
+						onClick={() => removeItem(Number(id))}
+						className='relative h-full text-red-400 w-full flex items-center justify-center p-3'
+					>
+						<div
+							style={{ background: color }}
+							className=' flex  items-center justify-center w-0.5 text-center absolute b h-full top-0 left-0'
+						></div>
+						Удалить
+					</div>
 				</div>
 			</div>
 		</div>

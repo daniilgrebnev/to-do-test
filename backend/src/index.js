@@ -84,7 +84,7 @@ app.delete('/todos/:id', async (req, res) => {
 			where: { id: todoId },
 		})
 
-		if (deletedRowCount > 1) {
+		if (deletedRowCount) {
 			res.json({ message: 'Todo deleted successfully' })
 		} else {
 			res.status(404).json({ message: 'Todo not found' })

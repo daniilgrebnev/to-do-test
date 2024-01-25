@@ -32,8 +32,7 @@ export const useTaskView = create<ITaskView>(
 	(set): ITaskView => ({
 		activeArray: null,
 		demoView: false,
-
 		openDemoView: item => set({ demoView: true, activeArray: item }),
-		closeDemoView: () => set({ demoView: false }),
+		closeDemoView: () => set({ demoView: false, activeArray: null }),
 	})
 )

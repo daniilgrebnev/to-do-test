@@ -9,7 +9,7 @@ services:
     depends_on:
       - database
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@localhost:9432/your_database_name
+      - DATABASE_URL=postgres://postgres:postgres@database:5432/your_database_name
 
   frontend:
     build:
@@ -18,9 +18,8 @@ services:
       - "3000:3000"
       
   database:
-    
     image: postgres
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

@@ -59,11 +59,8 @@ const TaskWidget = () => {
 				style={{ width: demoView ? '80%' : '100%' }}
 				className='w-full transition-all'
 			>
-				<div className='text-center text-5xl py-10 text-semibold'>Задачи</div>
-				<div className='mx-auto text-center'>
-					<CreateTodo />
-				</div>
-				<div className='transition-all overflow-y-auto max-h-[50dvh] last:mb-20'>
+				<div className='mx-auto mt-16 text-center'></div>
+				<div className='transition-all grid grid-cols-4 gap-y-5 gap-x-10 mx-10 overflow-y-auto max-h-[50dvh]'>
 					{data &&
 						data.map(
 							item =>
@@ -77,6 +74,7 @@ const TaskWidget = () => {
 									/>
 								)
 						)}
+					<CreateTodo />
 				</div>
 			</div>
 		</div>
