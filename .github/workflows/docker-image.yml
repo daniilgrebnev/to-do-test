@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latestё
+    runs-on: ubuntu-latest
 
     services:
       docker:
@@ -15,7 +15,7 @@ jobs:
         ports:
           - 8080:8080
           - 3000:3000
-          - 7432:5432 # Порт 7432 для PostgreSQL
+          - 6432:5432 # Порт 7432 для PostgreSQL
         options: --network github_network # Убедитесь, что имя сети соответствует вашему проекту
 
     steps:
